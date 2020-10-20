@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="patient" />
+        <module name="docter" />
+        <module name="diagnose" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="diagnose" target="11" />
+      <module name="docter" target="11" />
+      <module name="patient" target="11" />
+    </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="diagnose" options="-parameters" />
+      <module name="docter" options="-parameters" />
+      <module name="patient" options="-parameters" />
+    </option>
+  </component>
+</project>
