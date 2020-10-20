@@ -13,10 +13,10 @@ import java.util.List;
 @AllArgsConstructor
 public class PatientService {
     @Autowired
-    private PatientRepo repo;
+    private final PatientRepo repo;
 
     @Autowired
-    private PatientMapper mapper;
+    private final PatientMapper mapper;
 
     public Patient getById(long id) {
         return repo.findById(id)

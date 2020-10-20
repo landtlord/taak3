@@ -14,19 +14,19 @@ import java.util.List;
 @AllArgsConstructor
 public class PatientResource {
     @Autowired
-    private PatientService service;
+    private final PatientService service;
 
-    @GetMapping("/patient/{id}")
+    @GetMapping("/patients/{id}")
     public ResponseEntity<Patient> getById(@PathVariable Long id){
         return ResponseEntity.ok(service.getById(id));
     }
 
-    @GetMapping("/patient/")
+    @GetMapping("/patients")
     public ResponseEntity<List<Patient>> getAll(){
         return ResponseEntity.ok(service.getAll());
     }
 
-    @PostMapping("/patient")
+    @PostMapping("/patients")
     public ResponseEntity<Patient> save(@RequestBody Patient patient) {
         return ResponseEntity.ok(service.save(patient));
     }

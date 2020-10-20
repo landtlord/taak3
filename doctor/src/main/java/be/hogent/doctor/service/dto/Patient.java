@@ -1,4 +1,4 @@
-package be.hogent.patient.service.dto;
+package be.hogent.doctor.service.dto;
 
 import lombok.Data;
 

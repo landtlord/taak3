@@ -1,4 +1,4 @@
-package be.hogent.patient.business;
+package be.hogent.diagnose.business;
 
 import lombok.Data;
 
@@ -8,11 +8,11 @@ import javax.persistence.Id;
 
 @Entity
 @Data
-public class PatientEntity {
+public class DiagnoseEntity {
     @Id
     @GeneratedValue
     private Long id;
 
     private String name;
-    private String email;
+    private String description;
 }
