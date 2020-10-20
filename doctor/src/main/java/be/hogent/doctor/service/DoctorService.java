@@ -5,8 +5,9 @@ import be.hogent.doctor.service.dto.Diagnose;
 import be.hogent.doctor.service.dto.Doctor;
 import be.hogent.doctor.service.dto.Patient;
 import be.hogent.doctor.service.mapper.DoctorMapper;
-import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
@@ -14,13 +15,19 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Service
-@AllArgsConstructor
+@RequiredArgsConstructor
 public class DoctorService {
     @Autowired
     private final DoctorRepo repo;
 
     @Autowired
     private final DoctorMapper mapper;
+
+    @Value("${diagnosises.url}")
+    private String diagnosisesUrl;
+
+    @Value("${patients.url}")
+    private String patientsUrl;
 
     public Doctor getById(long id) {
         return repo.findById(id)
@@ -30,8 +37,7 @@ public class DoctorService {
     }
 
     public List<Doctor> getAll() {
-        return mapper.toDTO(
-                repo.findAll())
+        return mapper.toDTO(repo.findAll())
                 .stream()
                 .map(this::enrich)
                 .collect(Collectors.toList());
@@ -45,8 +51,8 @@ public class DoctorService {
     }
 
     private Doctor enrich(Doctor doctor) {
-        doctor.setDiagnose(new RestTemplate().getForObject("http://localhost:7070/api/diagnosises/" + doctor.getDiagnosisId(), Diagnose.class));
-        doctor.setPatient(new RestTemplate().getForObject("http://localhost:8080/api/patients/" + doctor.getPatientId(), Patient.class));
+        doctor.setDiagnose(new RestTemplate().getForObject(diagnosisesUrl + doctor.getDiagnosisId(), Diagnose.class));
+        doctor.setPatient(new RestTemplate().getForObject(patientsUrl + doctor.getPatientId(), Patient.class));
         return doctor;
     }
 
