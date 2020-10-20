@@ -6,8 +6,9 @@
         <option value="$PROJECT_DIR$/doctor/pom.xml" />
         <option value="$PROJECT_DIR$/patient/pom.xml" />
         <option value="$PROJECT_DIR$/diagnose/pom.xml" />
+        <option value="$PROJECT_DIR$/docter/pom.xml" />
       </list>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" project-jdk-name="11" project-jdk-type="JavaSDK" />
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="false" project-jdk-name="11" project-jdk-type="JavaSDK" />
 </project>

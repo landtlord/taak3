@@ -6,14 +6,15 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="doctor" />
         <module name="patient" />
-        <module name="docter" />
         <module name="diagnose" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="diagnose" target="11" />
       <module name="docter" target="11" />
+      <module name="doctor" target="11" />
       <module name="patient" target="11" />
     </bytecodeTargetLevel>
   </component>
@@ -21,6 +22,7 @@
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="diagnose" options="-parameters" />
       <module name="docter" options="-parameters" />
+      <module name="doctor" options="-parameters" />
       <module name="patient" options="-parameters" />
     </option>
   </component>
